@@ -7,7 +7,7 @@ import { MoonagePicturesContext } from "../../MoonagePictures";
 
 const Contact = () => {
   const {
-    contactData: { loading, title, body, contactInfo }
+    contactData: { loading, title, body, contactInfo },
   } = useContext(MoonagePicturesContext);
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -31,20 +31,20 @@ const Contact = () => {
                       style={{
                         display: "flex",
                         flexFlow: "column nowrap",
-                        height: "100%"
+                        height: "100%",
                       }}
                     >
                       <p
                         style={{ marginTop: 0 }}
                         dangerouslySetInnerHTML={{
-                          __html: contactInfo.address
+                          __html: contactInfo.address,
                         }}
                       />
                       <p>
                         <a
                           href={`tel:${contactInfo.telephone}`}
                           style={{
-                            color: "white"
+                            color: "white",
                           }}
                         >
                           {contactInfo.telephone}
@@ -54,7 +54,7 @@ const Contact = () => {
                         <a
                           href={`mailto:${contactInfo.email}`}
                           style={{
-                            color: "white"
+                            color: "white",
                           }}
                         >
                           {contactInfo.email}
@@ -69,7 +69,10 @@ const Contact = () => {
 
                   <div className="column is-two-thirds-desktop">
                     <GoogleMap
-                      location={{ lat: 51.5144301, lng: -0.1296261 }}
+                      location={{
+                        lat: 51.518048257764406,
+                        lng: -0.12515884441113997,
+                      }}
                     />
                   </div>
                 </div>
@@ -83,4 +86,4 @@ const Contact = () => {
   );
 };
 
-export default Contact
+export default Contact;
