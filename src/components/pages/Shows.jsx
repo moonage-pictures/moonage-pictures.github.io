@@ -11,16 +11,12 @@ const Shows = () => {
     showsData: { shows, loading },
   } = useContext(MoonagePicturesContext);
 
-  console.log({ shows, loading });
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   const [imagesLoaded, setImagesLoaded] = useState(0);
   const [displayImages, setDisplayImages] = useState(false);
-
-  console.log({ imagesLoaded });
 
   useEffect(() => {
     if (imagesLoaded >= NUMBER_OF_IMAGES) setDisplayImages(true);
@@ -54,7 +50,7 @@ const Shows = () => {
                             style={{ cursor: "pointer" }}
                           >
                             <img
-                              onLoad={() => setImagesLoaded(prev => prev + 1)}
+                              onLoad={() => setImagesLoaded((prev) => prev + 1)}
                               src={img.url}
                               alt={img.alt}
                             />
