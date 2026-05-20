@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Lulo Clean";
+  src: url("./assets/fonts/lulo-clean-family/lulo-clean-one.otf")
+    format("opentype");
+}
+
+@font-face {
+  font-family: "Lulo Bold";
+  src: url("./assets/fonts/lulo-clean-family/lulo-clean-one-bold.otf")
+    format("opentype");
+}
+
+@theme {
+  --color-brand-pumpkin: #ff7f11;
+  --color-brand-green: #4c934c;
+  --color-brand-yellow: #ffb30f;
+  --color-brand-blue: #009fb7;
+  --color-brand-pink: #db6c79;
+  --color-brand-red: #f32910;
+
+  --font-heading: "Lulo Clean", sans-serif;
+  --font-body: "Helvetica", sans-serif;
+
+  --animate-fade-in: fade-in 1s ease-in-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-black text-white font-body;
+  }
+
+  .page-content p {
+    @apply text-white text-base my-4;
+  }
+
+  .page-content a {
+    @apply text-white underline hover:text-brand-blue;
+  }
+
+  .page-content strong {
+    @apply font-bold text-white;
+  }
+}
