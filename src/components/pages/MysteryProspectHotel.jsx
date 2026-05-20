@@ -1,14 +1,15 @@
-// 2219
-
 import React, { useState, useContext, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 import Show from "../common/Show";
 import { MoonagePicturesContext } from "../../MoonagePictures";
 import getImageOrder from "./utils/getImageOrder";
 
-const TheLeopard = ({ location: { img } }) => {
+const MysteryProspectHotel = () => {
+  const { state } = useLocation();
+  const img = state?.img;
   const {
-    theLeopardData: { show, loading, wideImages: initialWideImages },
+    mysteryProspectHotelData: { show, loading, wideImages: initialWideImages },
   } = useContext(MoonagePicturesContext);
 
   const [wideImages, setWideImages] = useState([]);
@@ -27,4 +28,4 @@ const TheLeopard = ({ location: { img } }) => {
   return <Show show={show} wideImages={wideImages} loading={loading} />;
 };
 
-export default TheLeopard;
+export default MysteryProspectHotel;

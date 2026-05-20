@@ -1,12 +1,15 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 import Show from "../common/Show";
 import { MoonagePicturesContext } from "../../MoonagePictures";
 import getImageOrder from "./utils/getImageOrder";
 
-const Curfew = ({ location: { img } }) => {
+const Obsession = () => {
+  const { state } = useLocation();
+  const img = state?.img;
   const {
-    curfewData: { show, wideImages: initialWideImages, loading },
+    obsessionData: { show, loading, wideImages: initialWideImages },
   } = useContext(MoonagePicturesContext);
 
   const [wideImages, setWideImages] = useState([]);
@@ -25,4 +28,4 @@ const Curfew = ({ location: { img } }) => {
   return <Show show={show} wideImages={wideImages} loading={loading} />;
 };
 
-export default Curfew;
+export default Obsession;

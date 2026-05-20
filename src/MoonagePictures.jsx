@@ -1,9 +1,9 @@
 import React, { createContext, useEffect, useState } from "react";
 import axios from "axios";
 
-import "bulma";
+import "bulma/css/bulma.min.css";
 
-import Routes from "./Routes";
+import AppRoutes from "./Routes";
 
 export const MoonagePicturesContext = createContext();
 
@@ -80,7 +80,7 @@ const MooneagePicturesContextProvider = ({ children }) => {
         },
       ] = await Promise.all([
         axios({
-          url: process.env.REACT_APP_SHOWS_GALLERY_URL,
+          url: import.meta.env.VITE_SHOWS_GALLERY_URL,
           method: "GET",
         }),
         await axios.get(
@@ -318,7 +318,7 @@ const MooneagePicturesContextProvider = ({ children }) => {
 const MoonagePictures = () => {
   return (
     <MooneagePicturesContextProvider>
-      <Routes />
+      <AppRoutes />
     </MooneagePicturesContextProvider>
   );
 };

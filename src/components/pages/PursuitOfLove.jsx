@@ -1,14 +1,15 @@
-// 2219
-
 import React, { useState, useContext, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 import Show from "../common/Show";
 import { MoonagePicturesContext } from "../../MoonagePictures";
 import getImageOrder from "./utils/getImageOrder";
 
-const TheGentlemen = ({ location: { img } }) => {
+const PursuitOfLove = () => {
+  const { state } = useLocation();
+  const img = state?.img;
   const {
-    theGentlemenData: { show, loading, wideImages: initialWideImages },
+    pursuitOfLoveData: { show, loading, wideImages: initialWideImages },
   } = useContext(MoonagePicturesContext);
 
   const [wideImages, setWideImages] = useState([]);
@@ -27,4 +28,4 @@ const TheGentlemen = ({ location: { img } }) => {
   return <Show show={show} wideImages={wideImages} loading={loading} />;
 };
 
-export default TheGentlemen;
+export default PursuitOfLove;

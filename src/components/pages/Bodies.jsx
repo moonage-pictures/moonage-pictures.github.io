@@ -1,12 +1,15 @@
 import React, { useState, useContext, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 import Show from "../common/Show";
 import { MoonagePicturesContext } from "../../MoonagePictures";
 import getImageOrder from "./utils/getImageOrder";
 
-const Obsession = ({ location: { img } }) => {
+const Bodies = () => {
+  const { state } = useLocation();
+  const img = state?.img;
   const {
-    obsessionData: { show, loading, wideImages: initialWideImages },
+    bodiesData: { show, loading, wideImages: initialWideImages },
   } = useContext(MoonagePicturesContext);
 
   const [wideImages, setWideImages] = useState([]);
@@ -25,4 +28,4 @@ const Obsession = ({ location: { img } }) => {
   return <Show show={show} wideImages={wideImages} loading={loading} />;
 };
 
-export default Obsession;
+export default Bodies;

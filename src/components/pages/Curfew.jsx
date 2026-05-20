@@ -1,12 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 import Show from "../common/Show";
 import { MoonagePicturesContext } from "../../MoonagePictures";
 import getImageOrder from "./utils/getImageOrder";
 
-const Intergalactic = ({ location: { img } }) => {
+const Curfew = () => {
+  const { state } = useLocation();
+  const img = state?.img;
   const {
-    intergalacticData: { show, loading, wideImages: initialWideImages },
+    curfewData: { show, wideImages: initialWideImages, loading },
   } = useContext(MoonagePicturesContext);
 
   const [wideImages, setWideImages] = useState([]);
@@ -25,4 +28,4 @@ const Intergalactic = ({ location: { img } }) => {
   return <Show show={show} wideImages={wideImages} loading={loading} />;
 };
 
-export default Intergalactic;
+export default Curfew;
