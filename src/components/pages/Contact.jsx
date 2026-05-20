@@ -45,12 +45,12 @@ const Contact = () => {
                           href={`tel:${contactInfo.telephone}`}
                           style={{
                             color: "white",
+                            width: "full",
                           }}
                         >
                           {contactInfo.telephone}
                         </a>
-                      </p>
-                      <p>
+                        <br />
                         <a
                           href={`mailto:${contactInfo.email}`}
                           style={{
@@ -60,8 +60,13 @@ const Contact = () => {
                           {contactInfo.email}
                         </a>
                       </p>
+                      <p>
+                        Company Number: 10956051
+                        <br /> Registered Office: c/o ITV, White City, 201 Wood
+                        Lane, London W12 7RU
+                      </p>
                       <div
-                        style={{ marginTop: "auto" }}
+                        style={{ marginTop: "0" }}
                         dangerouslySetInnerHTML={{ __html: body }}
                       />
                     </div>

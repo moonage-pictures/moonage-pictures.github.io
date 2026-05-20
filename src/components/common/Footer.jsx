@@ -9,6 +9,7 @@ import {
   faInstagram,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
+import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
 
 export default class Footer extends Component {
   render() {
@@ -41,7 +42,7 @@ export default class Footer extends Component {
                 rel="noopener noreferrer"
               >
                 <FontAwesomeIcon
-                  icon={faTwitter}
+                  icon={faXTwitter}
                   size={"lg"}
                   color="white"
                   style={{ marginRight: "1.5rem" }}
@@ -52,11 +53,7 @@ export default class Footer extends Component {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FontAwesomeIcon
-                  icon={faInstagram}
-                  size={"lg"}
-                  color="white"
-                />
+                <FontAwesomeIcon icon={faInstagram} size={"lg"} color="white" />
               </a>
             </div>
           </div>

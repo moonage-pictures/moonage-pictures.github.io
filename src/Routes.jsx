@@ -19,6 +19,7 @@ import TheGentlemen from "./components/pages/TheGentlemen";
 import AGGGTM from "./components/pages/AGGGTM";
 import MysteryProspectHotel from "./components/pages/MysteryProspectHotel";
 import TheLeopard from "./components/pages/TheLeopard";
+import GGG from "./components/pages/GGG";
 
 const AppRoutes = () => {
   return (
@@ -35,7 +36,11 @@ const AppRoutes = () => {
         <Route path="/shows/famous-five" element={<FamousFive />} />
         <Route path="/shows/the-gentlemen" element={<TheGentlemen />} />
         <Route path="/shows/agggtm" element={<AGGGTM />} />
-        <Route path="/shows/mystery-prospect-hotel" element={<MysteryProspectHotel />} />
+        <Route path="/shows/ggg" element={<GGG />} />
+        <Route
+          path="/shows/mystery-prospect-hotel"
+          element={<MysteryProspectHotel />}
+        />
         <Route path="/shows/the-leopard" element={<TheLeopard />} />
         <Route path="/shows" element={<Shows />} />
         <Route path="/people" element={<People />} />

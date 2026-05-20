@@ -21,6 +21,7 @@ const MooneagePicturesContextProvider = ({ children }) => {
   const [famousFiveData, setFamousFiveData] = useState({ loading: true });
   const [theGentlemenData, setTheGentlemenData] = useState({ loading: true });
   const [agggtmData, setAGGGTMData] = useState({ loading: true });
+  const [gggData, setGGGData] = useState({ loading: true });
   const [mysteryProspectHotelData, setMysteryProspectHotelData] = useState({
     loading: true,
   });
@@ -60,7 +61,7 @@ const MooneagePicturesContextProvider = ({ children }) => {
           method: "GET",
         }),
         await axios.get(
-          "https://cms.moonagepictures.com/wp-json/wp/v2/pages/486"
+          "https://cms.moonagepictures.com/wp-json/wp/v2/pages/486",
         ),
       ]);
 
@@ -84,7 +85,7 @@ const MooneagePicturesContextProvider = ({ children }) => {
           method: "GET",
         }),
         await axios.get(
-          "https://cms.moonagepictures.com/wp-json/wp/v2/pages/162"
+          "https://cms.moonagepictures.com/wp-json/wp/v2/pages/162",
         ),
       ]);
 
@@ -108,7 +109,7 @@ const MooneagePicturesContextProvider = ({ children }) => {
   useEffect(() => {
     const fetchIntergalacticData = async () => {
       const { data: show } = await axios.get(
-        "https://cms.moonagepictures.com/wp-json/wp/v2/posts/1600"
+        "https://cms.moonagepictures.com/wp-json/wp/v2/posts/1600",
       );
       setIntergalacticData({
         show,
@@ -123,7 +124,7 @@ const MooneagePicturesContextProvider = ({ children }) => {
   useEffect(() => {
     const fetchPursuitOfLoveData = async () => {
       const { data: show } = await axios.get(
-        "https://cms.moonagepictures.com/wp-json/wp/v2/posts/1614"
+        "https://cms.moonagepictures.com/wp-json/wp/v2/posts/1614",
       );
       setPursuitOfLoveData({
         show,
@@ -138,7 +139,7 @@ const MooneagePicturesContextProvider = ({ children }) => {
   useEffect(() => {
     const fetchObsessionData = async () => {
       const { data: show } = await axios.get(
-        "https://cms.moonagepictures.com/wp-json/wp/v2/posts/1963"
+        "https://cms.moonagepictures.com/wp-json/wp/v2/posts/1963",
       );
       setObsessionData({
         show,
@@ -153,7 +154,7 @@ const MooneagePicturesContextProvider = ({ children }) => {
   useEffect(() => {
     const fetchBodiesData = async () => {
       const { data: show } = await axios.get(
-        "https://cms.moonagepictures.com/wp-json/wp/v2/posts/2106"
+        "https://cms.moonagepictures.com/wp-json/wp/v2/posts/2106",
       );
 
       setBodiesData({
@@ -169,7 +170,7 @@ const MooneagePicturesContextProvider = ({ children }) => {
   useEffect(() => {
     const fetchFamousFiveData = async () => {
       const { data: show } = await axios.get(
-        "https://cms.moonagepictures.com/wp-json/wp/v2/posts/2155"
+        "https://cms.moonagepictures.com/wp-json/wp/v2/posts/2155",
       );
 
       setFamousFiveData({
@@ -185,7 +186,7 @@ const MooneagePicturesContextProvider = ({ children }) => {
   useEffect(() => {
     const theGentlemenData = async () => {
       const { data: show } = await axios.get(
-        "https://cms.moonagepictures.com/wp-json/wp/v2/posts/2219"
+        "https://cms.moonagepictures.com/wp-json/wp/v2/posts/2219",
       );
 
       setTheGentlemenData({
@@ -201,7 +202,7 @@ const MooneagePicturesContextProvider = ({ children }) => {
   useEffect(() => {
     const agggtmData = async () => {
       const { data: show } = await axios.get(
-        "https://cms.moonagepictures.com/wp-json/wp/v2/posts/2313"
+        "https://cms.moonagepictures.com/wp-json/wp/v2/posts/2313",
       );
 
       setAGGGTMData({
@@ -215,9 +216,25 @@ const MooneagePicturesContextProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
+    const gggData = async () => {
+      const { data: show } = await axios.get(
+        "https://cms.moonagepictures.com/wp-json/wp/v2/posts/2556",
+      );
+
+      setGGGData({
+        show,
+        wideImages: show.acf.wideImages,
+        loading: false,
+      });
+    };
+
+    gggData();
+  }, []);
+
+  useEffect(() => {
     const mysteryProspectHotelData = async () => {
       const { data: show } = await axios.get(
-        "https://cms.moonagepictures.com/wp-json/wp/v2/posts/2418"
+        "https://cms.moonagepictures.com/wp-json/wp/v2/posts/2418",
       );
 
       setMysteryProspectHotelData({
@@ -233,7 +250,7 @@ const MooneagePicturesContextProvider = ({ children }) => {
   useEffect(() => {
     const theLeopardData = async () => {
       const { data: show } = await axios.get(
-        "https://cms.moonagepictures.com/wp-json/wp/v2/posts/2486"
+        "https://cms.moonagepictures.com/wp-json/wp/v2/posts/2486",
       );
 
       setTheLeopardData({
@@ -279,7 +296,7 @@ const MooneagePicturesContextProvider = ({ children }) => {
   useEffect(() => {
     const fetchContactData = async () => {
       const { data } = await axios.get(
-        "https://cms.moonagepictures.com/wp-json/wp/v2/pages/19"
+        "https://cms.moonagepictures.com/wp-json/wp/v2/pages/19",
       );
       setContactData({
         title: data.title.rendered,
@@ -308,6 +325,7 @@ const MooneagePicturesContextProvider = ({ children }) => {
     agggtmData,
     mysteryProspectHotelData,
     theLeopardData,
+    gggData,
   };
 
   return (
