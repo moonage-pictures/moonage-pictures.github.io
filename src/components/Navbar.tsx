@@ -52,8 +52,8 @@ export function Navbar() {
           <Link
             key={item.to}
             to={item.to}
-            className={`px-4 py-2 font-heading font-bold uppercase text-white text-[1.5rem] tracking-[0.2rem] transition-colors lg:mt-[10vh] ${
-              isActive(item) ? `${item.activeColor} text-black` : item.color
+            className={`px-4 py-2 font-heading font-bold uppercase text-[1.5rem] tracking-[0.2rem] transition-colors lg:mt-[10vh] ${
+              isActive(item) ? `${item.activeColor} !text-black` : `text-white ${item.color}`
             }`}
           >
             {item.label}
