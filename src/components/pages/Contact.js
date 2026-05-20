@@ -61,7 +61,7 @@ const Contact = () => {
                         </a>
                       </p>
                       <div
-                        style={{ marginTop: "auto" }}
+                        style={{ marginTop: "0" }}
                         dangerouslySetInnerHTML={{ __html: body }}
                       />
                     </div>
