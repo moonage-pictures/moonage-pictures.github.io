@@ -148,7 +148,7 @@ const PAGE_SLUGS: Record<string, string> = {
   people: "497",
   daydream: "160",
   contact: "19",
-  "privacy-policy": "21",
+  "privacy-policy": "653",
 };
 
 export function usePageData(slug: string): HookResult<PageData> {
@@ -235,9 +235,7 @@ export function useNewsPosts(): HookResult<NewsPost[]> {
     let cancelled = false;
     setLoading(true);
 
-    fetchCached<WPPost[]>(
-      `${CMS_BASE}/posts?categories=5&per_page=100`,
-    )
+    fetchCached<WPPost[]>(`${CMS_BASE}/posts?categories=5&per_page=100`)
       .then((posts) => {
         if (cancelled) return;
         setData(
