@@ -1,9 +1,14 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, beforeEach } from "vitest";
 import { screen, waitFor } from "@testing-library/react";
 import { renderWithRouter } from "@/test/render";
 import { Contact } from "./Contact";
 
 describe("Contact", () => {
+  beforeEach(() => {
+    localStorage.clear();
+    localStorage.setItem("consent", "true");
+  });
+
   it("shows loader while fetching", () => {
     renderWithRouter(<Contact />);
     expect(screen.getByText("Loading...")).toBeInTheDocument();
@@ -41,5 +46,37 @@ describe("Contact", () => {
 
     const emailLink = screen.getByText("info@test.com");
     expect(emailLink).toHaveAttribute("href", "mailto:info@test.com");
+  });
+
+  it("renders Google Maps iframe when consent is true", async () => {
+    renderWithRouter(<Contact />);
+
+    await waitFor(() => {
+      expect(screen.queryByText("Loading...")).not.toBeInTheDocument();
+    });
+
+    expect(screen.getByTitle("Office Location")).toBeInTheDocument();
+  });
+
+  it("does not render Google Maps iframe when consent is not given", async () => {
+    localStorage.removeItem("consent");
+    renderWithRouter(<Contact />);
+
+    await waitFor(() => {
+      expect(screen.queryByText("Loading...")).not.toBeInTheDocument();
+    });
+
+    expect(screen.queryByTitle("Office Location")).not.toBeInTheDocument();
+  });
+
+  it("does not render Google Maps iframe when consent is false", async () => {
+    localStorage.setItem("consent", "false");
+    renderWithRouter(<Contact />);
+
+    await waitFor(() => {
+      expect(screen.queryByText("Loading...")).not.toBeInTheDocument();
+    });
+
+    expect(screen.queryByTitle("Office Location")).not.toBeInTheDocument();
   });
 });

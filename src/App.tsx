@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Layout } from "@/components/Layout";
+import { CookieBanner } from "@/components/CookieBanner";
 import { Home } from "@/pages/Home";
 import { Company } from "@/pages/Company";
 import { News } from "@/pages/News";
@@ -9,10 +10,12 @@ import { People } from "@/pages/People";
 import { Daydream } from "@/pages/Daydream";
 import { Contact } from "@/pages/Contact";
 import { PrivacyPolicy } from "@/pages/PrivacyPolicy";
+import { Cookies } from "@/pages/Cookies";
 
 export function App() {
   return (
     <BrowserRouter>
+      <CookieBanner />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route element={<Layout />}>
@@ -24,6 +27,7 @@ export function App() {
           <Route path="/daydream" element={<Daydream />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/cookies" element={<Cookies />} />
         </Route>
       </Routes>
     </BrowserRouter>

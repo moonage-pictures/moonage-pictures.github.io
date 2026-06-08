@@ -50,7 +50,7 @@ export function ShowPage() {
           dangerouslySetInnerHTML={{ __html: data.content }}
         />
 
-        {data.trailerUrl && (
+        {data.trailerUrl && localStorage.getItem("consent") === "true" && (
           <div className="mt-8 max-w-2xl mx-auto mb-16">
             <ReactPlayer url={data.trailerUrl} controls width="100%" />
           </div>

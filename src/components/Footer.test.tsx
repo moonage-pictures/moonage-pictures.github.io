@@ -25,6 +25,21 @@ describe("Footer", () => {
     expect(screen.getByText("Privacy Policy")).toHaveAttribute("href", "/privacy-policy");
   });
 
+  it("renders cookies settings link", () => {
+    renderWithRouter(<Footer />);
+
+    expect(screen.getByText("Cookies Settings")).toHaveAttribute("href", "/cookies");
+  });
+
+  it("renders modern slavery statement link", () => {
+    renderWithRouter(<Footer />);
+
+    expect(screen.getByText("ITV's Modern Slavery Statement")).toHaveAttribute(
+      "href",
+      "https://www.itvplc.com/~/media/Files/I/ITV-PLC-V2/documents/ITV%20Modern%20Slavery%20Act%20Transparency%20Statement%202026.pdf",
+    );
+  });
+
   it("shows designer credit on home page", () => {
     renderWithRouter(<Footer />, { route: "/" });
 
