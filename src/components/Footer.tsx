@@ -43,7 +43,7 @@ export function Footer() {
       <p className="text-center text-[0.65rem]">
         Copyright Moonage Pictures Limited &copy; {new Date().getFullYear()}.{" "}
         <Link to="/privacy-policy" className="text-white hover:underline">
-          Privacy Policy
+          Privacy Notice
         </Link>
         {" · "}
         <a
