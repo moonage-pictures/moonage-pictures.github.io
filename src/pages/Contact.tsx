@@ -53,11 +53,10 @@ export function Contact() {
             {data.body && (
               <div dangerouslySetInnerHTML={{ __html: data.body }} />
             )}
-            <p className="text-sm mt-4">
+            <p className="text-xs mt-4">
               Company Number: 10956051
               <br />
-              Registered Office: c/o ITV, White City, 201 Wood Lane, London W12
-              7RU
+              Registered Office: ITV, White City, 201 Wood Lane, London W12 7RU
             </p>
           </div>
           {localStorage.getItem("consent") === "true" && (
